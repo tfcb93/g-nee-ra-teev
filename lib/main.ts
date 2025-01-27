@@ -10,14 +10,14 @@ const standardScreenSize: ScreenOptions = {
         y: 0,
     },
     max: {
-        x: window.innerWidth,
-        y: window.innerHeight
+        x: 640,
+        y: 480
     }
 }
 
 export function nee(
-    width: number = window.innerWidth,
-    height: number = window.innerHeight,
+    width: number = 640,
+    height: number = 480,
     screen: ScreenOptions = standardScreenSize,
     animated: boolean = true,
 ): {canvas: HTMLCanvasElement, context: CanvasRenderingContext2D | null} {

@@ -20,9 +20,9 @@ function nr(i) {
     });
   }), u;
 }
-var z = { exports: {} }, er = z.exports, F;
+var z = { exports: {} }, er = z.exports, N;
 function tr() {
-  return F || (F = 1, function(i) {
+  return N || (N = 1, function(i) {
     (function(a, u, h) {
       function f(r) {
         var e = this, o = c();
@@ -63,9 +63,9 @@ function tr() {
     );
   }(z)), z.exports;
 }
-var A = { exports: {} }, ir = A.exports, N;
+var A = { exports: {} }, ir = A.exports, I;
 function or() {
-  return N || (N = 1, function(i) {
+  return I || (I = 1, function(i) {
     (function(a, u, h) {
       function f(c) {
         var r = this, e = "";
@@ -99,9 +99,9 @@ function or() {
     );
   }(A)), A.exports;
 }
-var D = { exports: {} }, ur = D.exports, I;
+var D = { exports: {} }, ur = D.exports, U;
 function cr() {
-  return I || (I = 1, function(i) {
+  return U || (U = 1, function(i) {
     (function(a, u, h) {
       function f(c) {
         var r = this, e = "";
@@ -135,9 +135,9 @@ function cr() {
     );
   }(D)), D.exports;
 }
-var H = { exports: {} }, sr = H.exports, U;
+var H = { exports: {} }, sr = H.exports, W;
 function ar() {
-  return U || (U = 1, function(i) {
+  return W || (W = 1, function(i) {
     (function(a, u, h) {
       function f(c) {
         var r = this;
@@ -376,7 +376,7 @@ function B(i, a, u) {
   return Math.trunc(u() * (a - i) + i);
 }
 var b = /* @__PURE__ */ ((i) => (i[i.X = 0] = "X", i[i.Y = 1] = "Y", i[i.BOTH = 2] = "BOTH", i))(b || {});
-function W(i, a, u, h) {
+function k(i, a, u, h) {
   switch (h) {
     case b.X:
       return { x: i.x + Math.sin(a) * u, y: i.y };
@@ -386,7 +386,7 @@ function W(i, a, u, h) {
       return { x: i.x + Math.sin(a) * u, y: i.y + Math.sin(a) * u };
   }
 }
-function k(i, a, u, h) {
+function F(i, a, u, h) {
   switch (h) {
     case b.X:
       return { x: i.x + Math.cos(a) * u, y: i.y };
@@ -421,7 +421,7 @@ function jr(i, a, u) {
 }
 function Mr(i, a, u, h) {
   const f = h(), x = h();
-  return f < 0.5 ? x < 0.3 ? W(i, a, u, b.X) : x >= 0.3 && x < 0.6 ? W(i, a, u, b.Y) : W(i, a, u, b.BOTH) : x < 0.3 ? k(i, a, u, b.X) : x >= 0.3 && x < 0.6 ? k(i, a, u, b.Y) : k(i, a, u, b.BOTH);
+  return f < 0.5 ? x < 0.3 ? k(i, a, u, b.X) : x >= 0.3 && x < 0.6 ? k(i, a, u, b.Y) : k(i, a, u, b.BOTH) : x < 0.3 ? F(i, a, u, b.X) : x >= 0.3 && x < 0.6 ? F(i, a, u, b.Y) : F(i, a, u, b.BOTH);
 }
 function Or(i, a, u, h, f, x) {
   i.save(), i.beginPath(), i.strokeStyle = x, i.rect(a - h / 2, u - f / 2, h, f), i.stroke(), i.restore();
@@ -432,11 +432,11 @@ const _r = {
     y: 0
   },
   max: {
-    x: window.innerWidth,
-    y: window.innerHeight
+    x: 640,
+    y: 480
   }
 };
-function Br(i = window.innerWidth, a = window.innerHeight, u = _r, h = !0) {
+function Br(i = 640, a = 480, u = _r, h = !0) {
   const f = document.createElement("canvas"), x = f.getContext("2d");
   f.width = i, f.height = a;
   const v = br();
