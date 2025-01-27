@@ -15,7 +15,7 @@ const standardScreenSize: ScreenOptions = {
     }
 }
 
-export function nee(
+export default function nee(
     width: number = 640,
     height: number = 480,
     screen: ScreenOptions = standardScreenSize,

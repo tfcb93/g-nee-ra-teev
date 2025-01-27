@@ -470,5 +470,5 @@ function $r(i, a, u, h) {
   };
 }
 export {
-  Br as nee
+  Br as default
 };

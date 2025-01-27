@@ -1,5 +1,5 @@
 import './style.css'
-import { nee } from '../lib/main';
+import nee from '../lib/main';
 
 function app() {
 
