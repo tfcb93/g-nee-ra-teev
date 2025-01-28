@@ -3,6 +3,13 @@ export interface PointType {
     y: number
 }
 
+interface OptionsType {
+    screenArea?: ScreenOptions,
+    initialPoint?: PointType,
+    endPoints?: Array<PointType>
+    intervalLimits?: LimitsType,
+}
+
 export interface ScreenOptions {
     min: {
         x: number,

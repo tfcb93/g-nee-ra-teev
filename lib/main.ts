@@ -1,15 +1,8 @@
 import seedrandom from "seedrandom";
-import type { DeltaTimeType, LimitsType, PointType, ScreenOptions } from "../src/types";
+import type { DeltaTimeType, LimitsType, OptionsType, PointType, ScreenOptions } from "../src/types";
 import { choosePointMovement, createPoint, createPointHalfWay, createVariousPoints, distortPointByPercentage, splitBetween } from "../src/modules/points";
 import { randomBetweenNumbers } from "../src/modules/random";
 import { drawPoint } from "../src/modules/drawing";
-
-interface OptionsType {
-    screenArea?: ScreenOptions,
-    initialPoint?: PointType,
-    endPoints?: Array<PointType>
-    intervalLimits?: LimitsType
-}
 
 export default function nee(
     width: number = 640,
@@ -37,10 +30,8 @@ export default function nee(
         nee_delta.delta = nee_delta.delta + elapsed;
     }
     
-    const screenArea: ScreenOptions = options && options.screenArea ? options.screenArea : {min: {x:0, y:0}, max: {x: width, y: height}};
-    
     if (nee_context) {
-        const nee_choose = nee_squares(nee_canvas, nee_context, nee_random, screenArea, {min: 10, max: 20});
+        const nee_choose = nee_squares(nee_canvas, nee_context, nee_random, options);
         if (animated) {
             const nee_animation = () => {
                 nee_loop();
@@ -61,14 +52,15 @@ function nee_squares(
     nee_canvas: HTMLCanvasElement,
     nee_context: CanvasRenderingContext2D,
     nee_generator: seedrandom.PRNG,
-    screen: ScreenOptions,
-    limits: LimitsType
+    options?: OptionsType,
 ): (delta: number) => void {
+    const screen: ScreenOptions = options && options.screenArea ? options.screenArea : {min: {x:0, y:0}, max: {x: nee_canvas.width, y: nee_canvas.height}};
+    const limits: LimitsType = options && options.intervalLimits ? options.intervalLimits : {min: 10, max: 20};
     // initialize
-    const initialPoint: PointType = createPoint(screen.min, screen.max, nee_generator);
-    const finalPoints: Array<PointType> = createVariousPoints(screen.min, screen.max, nee_generator, randomBetweenNumbers(limits.min, limits.max, nee_generator));
+    const initialPoint: PointType = options && options.initialPoint ? options.initialPoint : createPoint(screen.min, screen.max, nee_generator);
+    const finalPoints: Array<PointType> = options &&  options.endPoints ? options.endPoints : createVariousPoints(screen.min, screen.max, nee_generator, randomBetweenNumbers(1, 20, nee_generator));
     let inBetweenPoints: Array<Array<PointType>> = finalPoints.map((point: PointType) => {
-        return splitBetween(initialPoint, point, randomBetweenNumbers(10, 30, nee_generator)).map((inBetweenPoint: PointType, index: number, arr: Array<PointType>) => {
+        return splitBetween(initialPoint, point, randomBetweenNumbers(limits.min, limits.max, nee_generator)).map((inBetweenPoint: PointType, index: number, arr: Array<PointType>) => {
           const newPoint = distortPointByPercentage(createPointHalfWay(index == 0 ? initialPoint : arr[index - 1], inBetweenPoint), 10, nee_generator);
           return newPoint;
         });
