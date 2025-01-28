@@ -4,34 +4,30 @@ import { choosePointMovement, createPoint, createPointHalfWay, createVariousPoin
 import { randomBetweenNumbers } from "../src/modules/random";
 import { drawPoint } from "../src/modules/drawing";
 
-const standardScreenSize: ScreenOptions = {
-    min: {
-        x: 0,
-        y: 0,
-    },
-    max: {
-        x: window.innerWidth,
-        y: window.innerHeight
-    }
+interface OptionsType {
+    screenArea?: ScreenOptions,
+    initialPoint?: PointType,
+    endPoints?: Array<PointType>
+    intervalLimits?: LimitsType
 }
 
-export function nee(
-    width: number = window.innerWidth,
-    height: number = window.innerHeight,
-    screen: ScreenOptions = standardScreenSize,
+export default function nee(
+    width: number = 640,
+    height: number = 480,
     animated: boolean = true,
+    options?: OptionsType,
 ): {canvas: HTMLCanvasElement, context: CanvasRenderingContext2D | null} {
 
     // canvas initial operations
     const nee_canvas: HTMLCanvasElement = document.createElement('canvas');
     const nee_context: CanvasRenderingContext2D | null = nee_canvas.getContext("2d");
-
+    
     nee_canvas.width = width;
     nee_canvas.height = height;
-
+    
     // create pseudorandom seed
     const nee_random: seedrandom.PRNG = seedrandom();
-
+    
     // create delta time
     let nee_delta: DeltaTimeType = {previousTime: Date.now(), delta: 0};
     const nee_loop = () => {
@@ -40,10 +36,11 @@ export function nee(
         nee_delta.previousTime = currentTime;
         nee_delta.delta = nee_delta.delta + elapsed;
     }
-
+    
+    const screenArea: ScreenOptions = options && options.screenArea ? options.screenArea : {min: {x:0, y:0}, max: {x: width, y: height}};
     
     if (nee_context) {
-        const nee_choose = nee_squares(nee_context, nee_random, screen, {min: 10, max: 20});
+        const nee_choose = nee_squares(nee_canvas, nee_context, nee_random, screenArea, {min: 10, max: 20});
         if (animated) {
             const nee_animation = () => {
                 nee_loop();
@@ -51,6 +48,8 @@ export function nee(
                 requestAnimationFrame(nee_animation);
             }
             nee_animation();
+        } else {
+            nee_choose(0);
         }
     }
 
@@ -58,7 +57,13 @@ export function nee(
     return {canvas: nee_canvas, context: nee_context};
 }
 
-function nee_squares(nee_context: CanvasRenderingContext2D, nee_generator: seedrandom.PRNG, screen: ScreenOptions, limits: LimitsType): (delta: number) => void {
+function nee_squares(
+    nee_canvas: HTMLCanvasElement,
+    nee_context: CanvasRenderingContext2D,
+    nee_generator: seedrandom.PRNG,
+    screen: ScreenOptions,
+    limits: LimitsType
+): (delta: number) => void {
     // initialize
     const initialPoint: PointType = createPoint(screen.min, screen.max, nee_generator);
     const finalPoints: Array<PointType> = createVariousPoints(screen.min, screen.max, nee_generator, randomBetweenNumbers(limits.min, limits.max, nee_generator));
@@ -71,7 +76,7 @@ function nee_squares(nee_context: CanvasRenderingContext2D, nee_generator: seedr
 
 
       return (delta: number) => {
-        nee_context.clearRect(0, 0, screen.max.x, screen.max.y);
+        nee_context.clearRect(0, 0, nee_canvas.width, nee_canvas.height);
         inBetweenPoints = inBetweenPoints.map((points: Array<PointType>) => {
             const colorInterval: number = 1.0/points.length;
             const pointsMultiplyer = nee_generator();
