@@ -1,132 +1,132 @@
 function rr(i) {
   return i && i.__esModule && Object.prototype.hasOwnProperty.call(i, "default") ? i.default : i;
 }
-function nr(i) {
+function er(i) {
   if (i.__esModule) return i;
   var a = i.default;
   if (typeof a == "function") {
-    var u = function h() {
-      return this instanceof h ? Reflect.construct(a, arguments, this.constructor) : a.apply(this, arguments);
+    var u = function f() {
+      return this instanceof f ? Reflect.construct(a, arguments, this.constructor) : a.apply(this, arguments);
     };
     u.prototype = a.prototype;
   } else u = {};
-  return Object.defineProperty(u, "__esModule", { value: !0 }), Object.keys(i).forEach(function(h) {
-    var f = Object.getOwnPropertyDescriptor(i, h);
-    Object.defineProperty(u, h, f.get ? f : {
+  return Object.defineProperty(u, "__esModule", { value: !0 }), Object.keys(i).forEach(function(f) {
+    var x = Object.getOwnPropertyDescriptor(i, f);
+    Object.defineProperty(u, f, x.get ? x : {
       enumerable: !0,
       get: function() {
-        return i[h];
+        return i[f];
       }
     });
   }), u;
 }
-var z = { exports: {} }, er = z.exports, N;
+var A = { exports: {} }, nr = A.exports, L;
 function tr() {
-  return N || (N = 1, function(i) {
-    (function(a, u, h) {
-      function f(r) {
-        var e = this, o = c();
-        e.next = function() {
-          var n = 2091639 * e.s0 + e.c * 23283064365386963e-26;
-          return e.s0 = e.s1, e.s1 = e.s2, e.s2 = n - (e.c = n | 0);
-        }, e.c = 1, e.s0 = o(" "), e.s1 = o(" "), e.s2 = o(" "), e.s0 -= o(r), e.s0 < 0 && (e.s0 += 1), e.s1 -= o(r), e.s1 < 0 && (e.s1 += 1), e.s2 -= o(r), e.s2 < 0 && (e.s2 += 1), o = null;
+  return L || (L = 1, function(i) {
+    (function(a, u, f) {
+      function x(r) {
+        var n = this, o = s();
+        n.next = function() {
+          var e = 2091639 * n.s0 + n.c * 23283064365386963e-26;
+          return n.s0 = n.s1, n.s1 = n.s2, n.s2 = e - (n.c = e | 0);
+        }, n.c = 1, n.s0 = o(" "), n.s1 = o(" "), n.s2 = o(" "), n.s0 -= o(r), n.s0 < 0 && (n.s0 += 1), n.s1 -= o(r), n.s1 < 0 && (n.s1 += 1), n.s2 -= o(r), n.s2 < 0 && (n.s2 += 1), o = null;
       }
-      function x(r, e) {
-        return e.c = r.c, e.s0 = r.s0, e.s1 = r.s1, e.s2 = r.s2, e;
+      function l(r, n) {
+        return n.c = r.c, n.s0 = r.s0, n.s1 = r.s1, n.s2 = r.s2, n;
       }
-      function v(r, e) {
-        var o = new f(r), n = e && e.state, t = o.next;
+      function v(r, n) {
+        var o = new x(r), e = n && n.state, t = o.next;
         return t.int32 = function() {
           return o.next() * 4294967296 | 0;
         }, t.double = function() {
           return t() + (t() * 2097152 | 0) * 11102230246251565e-32;
-        }, t.quick = t, n && (typeof n == "object" && x(n, o), t.state = function() {
-          return x(o, {});
+        }, t.quick = t, e && (typeof e == "object" && l(e, o), t.state = function() {
+          return l(o, {});
         }), t;
       }
-      function c() {
-        var r = 4022871197, e = function(o) {
+      function s() {
+        var r = 4022871197, n = function(o) {
           o = String(o);
-          for (var n = 0; n < o.length; n++) {
-            r += o.charCodeAt(n);
+          for (var e = 0; e < o.length; e++) {
+            r += o.charCodeAt(e);
             var t = 0.02519603282416938 * r;
             r = t >>> 0, t -= r, t *= r, r = t >>> 0, t -= r, r += t * 4294967296;
           }
           return (r >>> 0) * 23283064365386963e-26;
         };
-        return e;
+        return n;
       }
       u && u.exports ? u.exports = v : this.alea = v;
     })(
-      er,
+      nr,
       i
     );
-  }(z)), z.exports;
+  }(A)), A.exports;
 }
-var A = { exports: {} }, ir = A.exports, I;
+var S = { exports: {} }, ir = S.exports, N;
 function or() {
-  return I || (I = 1, function(i) {
-    (function(a, u, h) {
-      function f(c) {
-        var r = this, e = "";
+  return N || (N = 1, function(i) {
+    (function(a, u, f) {
+      function x(s) {
+        var r = this, n = "";
         r.x = 0, r.y = 0, r.z = 0, r.w = 0, r.next = function() {
-          var n = r.x ^ r.x << 11;
-          return r.x = r.y, r.y = r.z, r.z = r.w, r.w ^= r.w >>> 19 ^ n ^ n >>> 8;
-        }, c === (c | 0) ? r.x = c : e += c;
-        for (var o = 0; o < e.length + 64; o++)
-          r.x ^= e.charCodeAt(o) | 0, r.next();
+          var e = r.x ^ r.x << 11;
+          return r.x = r.y, r.y = r.z, r.z = r.w, r.w ^= r.w >>> 19 ^ e ^ e >>> 8;
+        }, s === (s | 0) ? r.x = s : n += s;
+        for (var o = 0; o < n.length + 64; o++)
+          r.x ^= n.charCodeAt(o) | 0, r.next();
       }
-      function x(c, r) {
-        return r.x = c.x, r.y = c.y, r.z = c.z, r.w = c.w, r;
+      function l(s, r) {
+        return r.x = s.x, r.y = s.y, r.z = s.z, r.w = s.w, r;
       }
-      function v(c, r) {
-        var e = new f(c), o = r && r.state, n = function() {
-          return (e.next() >>> 0) / 4294967296;
+      function v(s, r) {
+        var n = new x(s), o = r && r.state, e = function() {
+          return (n.next() >>> 0) / 4294967296;
         };
-        return n.double = function() {
+        return e.double = function() {
           do
-            var t = e.next() >>> 11, s = (e.next() >>> 0) / 4294967296, l = (t + s) / (1 << 21);
-          while (l === 0);
-          return l;
-        }, n.int32 = e.next, n.quick = n, o && (typeof o == "object" && x(o, e), n.state = function() {
-          return x(e, {});
-        }), n;
+            var t = n.next() >>> 11, c = (n.next() >>> 0) / 4294967296, h = (t + c) / (1 << 21);
+          while (h === 0);
+          return h;
+        }, e.int32 = n.next, e.quick = e, o && (typeof o == "object" && l(o, n), e.state = function() {
+          return l(n, {});
+        }), e;
       }
       u && u.exports ? u.exports = v : this.xor128 = v;
     })(
       ir,
       i
     );
-  }(A)), A.exports;
+  }(S)), S.exports;
 }
-var D = { exports: {} }, ur = D.exports, U;
+var D = { exports: {} }, ur = D.exports, I;
 function cr() {
-  return U || (U = 1, function(i) {
-    (function(a, u, h) {
-      function f(c) {
-        var r = this, e = "";
+  return I || (I = 1, function(i) {
+    (function(a, u, f) {
+      function x(s) {
+        var r = this, n = "";
         r.next = function() {
-          var n = r.x ^ r.x >>> 2;
-          return r.x = r.y, r.y = r.z, r.z = r.w, r.w = r.v, (r.d = r.d + 362437 | 0) + (r.v = r.v ^ r.v << 4 ^ (n ^ n << 1)) | 0;
-        }, r.x = 0, r.y = 0, r.z = 0, r.w = 0, r.v = 0, c === (c | 0) ? r.x = c : e += c;
-        for (var o = 0; o < e.length + 64; o++)
-          r.x ^= e.charCodeAt(o) | 0, o == e.length && (r.d = r.x << 10 ^ r.x >>> 4), r.next();
+          var e = r.x ^ r.x >>> 2;
+          return r.x = r.y, r.y = r.z, r.z = r.w, r.w = r.v, (r.d = r.d + 362437 | 0) + (r.v = r.v ^ r.v << 4 ^ (e ^ e << 1)) | 0;
+        }, r.x = 0, r.y = 0, r.z = 0, r.w = 0, r.v = 0, s === (s | 0) ? r.x = s : n += s;
+        for (var o = 0; o < n.length + 64; o++)
+          r.x ^= n.charCodeAt(o) | 0, o == n.length && (r.d = r.x << 10 ^ r.x >>> 4), r.next();
       }
-      function x(c, r) {
-        return r.x = c.x, r.y = c.y, r.z = c.z, r.w = c.w, r.v = c.v, r.d = c.d, r;
+      function l(s, r) {
+        return r.x = s.x, r.y = s.y, r.z = s.z, r.w = s.w, r.v = s.v, r.d = s.d, r;
       }
-      function v(c, r) {
-        var e = new f(c), o = r && r.state, n = function() {
-          return (e.next() >>> 0) / 4294967296;
+      function v(s, r) {
+        var n = new x(s), o = r && r.state, e = function() {
+          return (n.next() >>> 0) / 4294967296;
         };
-        return n.double = function() {
+        return e.double = function() {
           do
-            var t = e.next() >>> 11, s = (e.next() >>> 0) / 4294967296, l = (t + s) / (1 << 21);
-          while (l === 0);
-          return l;
-        }, n.int32 = e.next, n.quick = n, o && (typeof o == "object" && x(o, e), n.state = function() {
-          return x(e, {});
-        }), n;
+            var t = n.next() >>> 11, c = (n.next() >>> 0) / 4294967296, h = (t + c) / (1 << 21);
+          while (h === 0);
+          return h;
+        }, e.int32 = n.next, e.quick = e, o && (typeof o == "object" && l(o, n), e.state = function() {
+          return l(n, {});
+        }), e;
       }
       u && u.exports ? u.exports = v : this.xorwow = v;
     })(
@@ -135,46 +135,46 @@ function cr() {
     );
   }(D)), D.exports;
 }
-var H = { exports: {} }, sr = H.exports, W;
+var H = { exports: {} }, sr = H.exports, U;
 function ar() {
-  return W || (W = 1, function(i) {
-    (function(a, u, h) {
-      function f(c) {
+  return U || (U = 1, function(i) {
+    (function(a, u, f) {
+      function x(s) {
         var r = this;
         r.next = function() {
-          var o = r.x, n = r.i, t, s;
-          return t = o[n], t ^= t >>> 7, s = t ^ t << 24, t = o[n + 1 & 7], s ^= t ^ t >>> 10, t = o[n + 3 & 7], s ^= t ^ t >>> 3, t = o[n + 4 & 7], s ^= t ^ t << 7, t = o[n + 7 & 7], t = t ^ t << 13, s ^= t ^ t << 9, o[n] = s, r.i = n + 1 & 7, s;
+          var o = r.x, e = r.i, t, c;
+          return t = o[e], t ^= t >>> 7, c = t ^ t << 24, t = o[e + 1 & 7], c ^= t ^ t >>> 10, t = o[e + 3 & 7], c ^= t ^ t >>> 3, t = o[e + 4 & 7], c ^= t ^ t << 7, t = o[e + 7 & 7], t = t ^ t << 13, c ^= t ^ t << 9, o[e] = c, r.i = e + 1 & 7, c;
         };
-        function e(o, n) {
-          var t, s = [];
-          if (n === (n | 0))
-            s[0] = n;
+        function n(o, e) {
+          var t, c = [];
+          if (e === (e | 0))
+            c[0] = e;
           else
-            for (n = "" + n, t = 0; t < n.length; ++t)
-              s[t & 7] = s[t & 7] << 15 ^ n.charCodeAt(t) + s[t + 1 & 7] << 13;
-          for (; s.length < 8; ) s.push(0);
-          for (t = 0; t < 8 && s[t] === 0; ++t) ;
-          for (t == 8 ? s[7] = -1 : s[t], o.x = s, o.i = 0, t = 256; t > 0; --t)
+            for (e = "" + e, t = 0; t < e.length; ++t)
+              c[t & 7] = c[t & 7] << 15 ^ e.charCodeAt(t) + c[t + 1 & 7] << 13;
+          for (; c.length < 8; ) c.push(0);
+          for (t = 0; t < 8 && c[t] === 0; ++t) ;
+          for (t == 8 ? c[7] = -1 : c[t], o.x = c, o.i = 0, t = 256; t > 0; --t)
             o.next();
         }
-        e(r, c);
+        n(r, s);
       }
-      function x(c, r) {
-        return r.x = c.x.slice(), r.i = c.i, r;
+      function l(s, r) {
+        return r.x = s.x.slice(), r.i = s.i, r;
       }
-      function v(c, r) {
-        c == null && (c = +/* @__PURE__ */ new Date());
-        var e = new f(c), o = r && r.state, n = function() {
-          return (e.next() >>> 0) / 4294967296;
+      function v(s, r) {
+        s == null && (s = +/* @__PURE__ */ new Date());
+        var n = new x(s), o = r && r.state, e = function() {
+          return (n.next() >>> 0) / 4294967296;
         };
-        return n.double = function() {
+        return e.double = function() {
           do
-            var t = e.next() >>> 11, s = (e.next() >>> 0) / 4294967296, l = (t + s) / (1 << 21);
-          while (l === 0);
-          return l;
-        }, n.int32 = e.next, n.quick = n, o && (o.x && x(o, e), n.state = function() {
-          return x(e, {});
-        }), n;
+            var t = n.next() >>> 11, c = (n.next() >>> 0) / 4294967296, h = (t + c) / (1 << 21);
+          while (h === 0);
+          return h;
+        }, e.int32 = n.next, e.quick = e, o && (o.x && l(o, n), e.state = function() {
+          return l(n, {});
+        }), e;
       }
       u && u.exports ? u.exports = v : this.xorshift7 = v;
     })(
@@ -183,42 +183,42 @@ function ar() {
     );
   }(H)), H.exports;
 }
-var Y = { exports: {} }, fr = Y.exports, J;
+var Y = { exports: {} }, fr = Y.exports, W;
 function xr() {
-  return J || (J = 1, function(i) {
-    (function(a, u, h) {
-      function f(c) {
+  return W || (W = 1, function(i) {
+    (function(a, u, f) {
+      function x(s) {
         var r = this;
         r.next = function() {
-          var o = r.w, n = r.X, t = r.i, s, l;
-          return r.w = o = o + 1640531527 | 0, l = n[t + 34 & 127], s = n[t = t + 1 & 127], l ^= l << 13, s ^= s << 17, l ^= l >>> 15, s ^= s >>> 12, l = n[t] = l ^ s, r.i = t, l + (o ^ o >>> 16) | 0;
+          var o = r.w, e = r.X, t = r.i, c, h;
+          return r.w = o = o + 1640531527 | 0, h = e[t + 34 & 127], c = e[t = t + 1 & 127], h ^= h << 13, c ^= c << 17, h ^= h >>> 15, c ^= c >>> 12, h = e[t] = h ^ c, r.i = t, h + (o ^ o >>> 16) | 0;
         };
-        function e(o, n) {
-          var t, s, l, m, _, j = [], C = 128;
-          for (n === (n | 0) ? (s = n, n = null) : (n = n + "\0", s = 0, C = Math.max(C, n.length)), l = 0, m = -32; m < C; ++m)
-            n && (s ^= n.charCodeAt((m + 32) % n.length)), m === 0 && (_ = s), s ^= s << 10, s ^= s >>> 15, s ^= s << 4, s ^= s >>> 13, m >= 0 && (_ = _ + 1640531527 | 0, t = j[m & 127] ^= s + _, l = t == 0 ? l + 1 : 0);
-          for (l >= 128 && (j[(n && n.length || 0) & 127] = -1), l = 127, m = 4 * 128; m > 0; --m)
-            s = j[l + 34 & 127], t = j[l = l + 1 & 127], s ^= s << 13, t ^= t << 17, s ^= s >>> 15, t ^= t >>> 12, j[l] = s ^ t;
-          o.w = _, o.X = j, o.i = l;
+        function n(o, e) {
+          var t, c, h, g, $, j = [], R = 128;
+          for (e === (e | 0) ? (c = e, e = null) : (e = e + "\0", c = 0, R = Math.max(R, e.length)), h = 0, g = -32; g < R; ++g)
+            e && (c ^= e.charCodeAt((g + 32) % e.length)), g === 0 && ($ = c), c ^= c << 10, c ^= c >>> 15, c ^= c << 4, c ^= c >>> 13, g >= 0 && ($ = $ + 1640531527 | 0, t = j[g & 127] ^= c + $, h = t == 0 ? h + 1 : 0);
+          for (h >= 128 && (j[(e && e.length || 0) & 127] = -1), h = 127, g = 4 * 128; g > 0; --g)
+            c = j[h + 34 & 127], t = j[h = h + 1 & 127], c ^= c << 13, t ^= t << 17, c ^= c >>> 15, t ^= t >>> 12, j[h] = c ^ t;
+          o.w = $, o.X = j, o.i = h;
         }
-        e(r, c);
+        n(r, s);
       }
-      function x(c, r) {
-        return r.i = c.i, r.w = c.w, r.X = c.X.slice(), r;
+      function l(s, r) {
+        return r.i = s.i, r.w = s.w, r.X = s.X.slice(), r;
       }
-      function v(c, r) {
-        c == null && (c = +/* @__PURE__ */ new Date());
-        var e = new f(c), o = r && r.state, n = function() {
-          return (e.next() >>> 0) / 4294967296;
+      function v(s, r) {
+        s == null && (s = +/* @__PURE__ */ new Date());
+        var n = new x(s), o = r && r.state, e = function() {
+          return (n.next() >>> 0) / 4294967296;
         };
-        return n.double = function() {
+        return e.double = function() {
           do
-            var t = e.next() >>> 11, s = (e.next() >>> 0) / 4294967296, l = (t + s) / (1 << 21);
-          while (l === 0);
-          return l;
-        }, n.int32 = e.next, n.quick = n, o && (o.X && x(o, e), n.state = function() {
-          return x(e, {});
-        }), n;
+            var t = n.next() >>> 11, c = (n.next() >>> 0) / 4294967296, h = (t + c) / (1 << 21);
+          while (h === 0);
+          return h;
+        }, e.int32 = n.next, e.quick = e, o && (o.X && l(o, n), e.state = function() {
+          return l(n, {});
+        }), e;
       }
       u && u.exports ? u.exports = v : this.xor4096 = v;
     })(
@@ -228,34 +228,34 @@ function xr() {
     );
   }(Y)), Y.exports;
 }
-var G = { exports: {} }, lr = G.exports, K;
+var G = { exports: {} }, lr = G.exports, J;
 function hr() {
-  return K || (K = 1, function(i) {
-    (function(a, u, h) {
-      function f(c) {
-        var r = this, e = "";
+  return J || (J = 1, function(i) {
+    (function(a, u, f) {
+      function x(s) {
+        var r = this, n = "";
         r.next = function() {
-          var n = r.b, t = r.c, s = r.d, l = r.a;
-          return n = n << 25 ^ n >>> 7 ^ t, t = t - s | 0, s = s << 24 ^ s >>> 8 ^ l, l = l - n | 0, r.b = n = n << 20 ^ n >>> 12 ^ t, r.c = t = t - s | 0, r.d = s << 16 ^ t >>> 16 ^ l, r.a = l - n | 0;
-        }, r.a = 0, r.b = 0, r.c = -1640531527, r.d = 1367130551, c === Math.floor(c) ? (r.a = c / 4294967296 | 0, r.b = c | 0) : e += c;
-        for (var o = 0; o < e.length + 20; o++)
-          r.b ^= e.charCodeAt(o) | 0, r.next();
+          var e = r.b, t = r.c, c = r.d, h = r.a;
+          return e = e << 25 ^ e >>> 7 ^ t, t = t - c | 0, c = c << 24 ^ c >>> 8 ^ h, h = h - e | 0, r.b = e = e << 20 ^ e >>> 12 ^ t, r.c = t = t - c | 0, r.d = c << 16 ^ t >>> 16 ^ h, r.a = h - e | 0;
+        }, r.a = 0, r.b = 0, r.c = -1640531527, r.d = 1367130551, s === Math.floor(s) ? (r.a = s / 4294967296 | 0, r.b = s | 0) : n += s;
+        for (var o = 0; o < n.length + 20; o++)
+          r.b ^= n.charCodeAt(o) | 0, r.next();
       }
-      function x(c, r) {
-        return r.a = c.a, r.b = c.b, r.c = c.c, r.d = c.d, r;
+      function l(s, r) {
+        return r.a = s.a, r.b = s.b, r.c = s.c, r.d = s.d, r;
       }
-      function v(c, r) {
-        var e = new f(c), o = r && r.state, n = function() {
-          return (e.next() >>> 0) / 4294967296;
+      function v(s, r) {
+        var n = new x(s), o = r && r.state, e = function() {
+          return (n.next() >>> 0) / 4294967296;
         };
-        return n.double = function() {
+        return e.double = function() {
           do
-            var t = e.next() >>> 11, s = (e.next() >>> 0) / 4294967296, l = (t + s) / (1 << 21);
-          while (l === 0);
-          return l;
-        }, n.int32 = e.next, n.quick = n, o && (typeof o == "object" && x(o, e), n.state = function() {
-          return x(e, {});
-        }), n;
+            var t = n.next() >>> 11, c = (n.next() >>> 0) / 4294967296, h = (t + c) / (1 << 21);
+          while (h === 0);
+          return h;
+        }, e.int32 = n.next, e.quick = e, o && (typeof o == "object" && l(o, n), e.state = function() {
+          return l(n, {});
+        }), e;
       }
       u && u.exports ? u.exports = v : this.tychei = v;
     })(
@@ -268,90 +268,90 @@ var E = { exports: {} };
 const vr = {}, yr = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: vr
-}, Symbol.toStringTag, { value: "Module" })), wr = /* @__PURE__ */ nr(yr);
-var pr = E.exports, L;
+}, Symbol.toStringTag, { value: "Module" })), wr = /* @__PURE__ */ er(yr);
+var pr = E.exports, K;
 function dr() {
-  return L || (L = 1, function(i) {
-    (function(a, u, h) {
-      var f = 256, x = 6, v = 52, c = "random", r = h.pow(f, x), e = h.pow(2, v), o = e * 2, n = f - 1, t;
-      function s(y, w, g) {
+  return K || (K = 1, function(i) {
+    (function(a, u, f) {
+      var x = 256, l = 6, v = 52, s = "random", r = f.pow(x, l), n = f.pow(2, v), o = n * 2, e = x - 1, t;
+      function c(y, w, m) {
         var d = [];
         w = w == !0 ? { entropy: !0 } : w || {};
-        var p = j(_(
-          w.entropy ? [y, R(u)] : y ?? C(),
+        var p = j($(
+          w.entropy ? [y, T(u)] : y ?? R(),
           3
-        ), d), X = new l(d), P = function() {
-          for (var q = X.g(x), O = r, M = 0; q < e; )
-            q = (q + M) * f, O *= f, M = X.g(1);
-          for (; q >= o; )
-            q /= 2, O /= 2, M >>>= 1;
-          return (q + M) / O;
+        ), d), X = new h(d), q = function() {
+          for (var P = X.g(l), O = r, M = 0; P < n; )
+            P = (P + M) * x, O *= x, M = X.g(1);
+          for (; P >= o; )
+            P /= 2, O /= 2, M >>>= 1;
+          return (P + M) / O;
         };
-        return P.int32 = function() {
+        return q.int32 = function() {
           return X.g(4) | 0;
-        }, P.quick = function() {
+        }, q.quick = function() {
           return X.g(4) / 4294967296;
-        }, P.double = P, j(R(X.S), u), (w.pass || g || function(q, O, M, $) {
-          return $ && ($.S && m($, X), q.state = function() {
-            return m(X, {});
-          }), M ? (h[c] = q, O) : q;
+        }, q.double = q, j(T(X.S), u), (w.pass || m || function(P, O, M, B) {
+          return B && (B.S && g(B, X), P.state = function() {
+            return g(X, {});
+          }), M ? (f[s] = P, O) : P;
         })(
-          P,
+          q,
           p,
-          "global" in w ? w.global : this == h,
+          "global" in w ? w.global : this == f,
           w.state
         );
       }
-      function l(y) {
-        var w, g = y.length, d = this, p = 0, X = d.i = d.j = 0, P = d.S = [];
-        for (g || (y = [g++]); p < f; )
-          P[p] = p++;
-        for (p = 0; p < f; p++)
-          P[p] = P[X = n & X + y[p % g] + (w = P[p])], P[X] = w;
-        (d.g = function(q) {
-          for (var O, M = 0, $ = d.i, T = d.j, S = d.S; q--; )
-            O = S[$ = n & $ + 1], M = M * f + S[n & (S[$] = S[T = n & T + O]) + (S[T] = O)];
-          return d.i = $, d.j = T, M;
-        })(f);
+      function h(y) {
+        var w, m = y.length, d = this, p = 0, X = d.i = d.j = 0, q = d.S = [];
+        for (m || (y = [m++]); p < x; )
+          q[p] = p++;
+        for (p = 0; p < x; p++)
+          q[p] = q[X = e & X + y[p % m] + (w = q[p])], q[X] = w;
+        (d.g = function(P) {
+          for (var O, M = 0, B = d.i, z = d.j, _ = d.S; P--; )
+            O = _[B = e & B + 1], M = M * x + _[e & (_[B] = _[z = e & z + O]) + (_[z] = O)];
+          return d.i = B, d.j = z, M;
+        })(x);
       }
-      function m(y, w) {
+      function g(y, w) {
         return w.i = y.i, w.j = y.j, w.S = y.S.slice(), w;
       }
-      function _(y, w) {
-        var g = [], d = typeof y, p;
+      function $(y, w) {
+        var m = [], d = typeof y, p;
         if (w && d == "object")
           for (p in y)
             try {
-              g.push(_(y[p], w - 1));
+              m.push($(y[p], w - 1));
             } catch {
             }
-        return g.length ? g : d == "string" ? y : y + "\0";
+        return m.length ? m : d == "string" ? y : y + "\0";
       }
       function j(y, w) {
-        for (var g = y + "", d, p = 0; p < g.length; )
-          w[n & p] = n & (d ^= w[n & p] * 19) + g.charCodeAt(p++);
-        return R(w);
+        for (var m = y + "", d, p = 0; p < m.length; )
+          w[e & p] = e & (d ^= w[e & p] * 19) + m.charCodeAt(p++);
+        return T(w);
       }
-      function C() {
+      function R() {
         try {
           var y;
-          return t && (y = t.randomBytes) ? y = y(f) : (y = new Uint8Array(f), (a.crypto || a.msCrypto).getRandomValues(y)), R(y);
+          return t && (y = t.randomBytes) ? y = y(x) : (y = new Uint8Array(x), (a.crypto || a.msCrypto).getRandomValues(y)), T(y);
         } catch {
-          var w = a.navigator, g = w && w.plugins;
-          return [+/* @__PURE__ */ new Date(), a, g, a.screen, R(u)];
+          var w = a.navigator, m = w && w.plugins;
+          return [+/* @__PURE__ */ new Date(), a, m, a.screen, T(u)];
         }
       }
-      function R(y) {
+      function T(y) {
         return String.fromCharCode.apply(0, y);
       }
-      if (j(h.random(), u), i.exports) {
-        i.exports = s;
+      if (j(f.random(), u), i.exports) {
+        i.exports = c;
         try {
           t = wr;
         } catch {
         }
       } else
-        h["seed" + c] = s;
+        f["seed" + s] = c;
     })(
       // global: `self` in browsers (including strict mode and web workers),
       // otherwise `this` in Node and other environments
@@ -367,17 +367,17 @@ var V, Q;
 function gr() {
   if (Q) return V;
   Q = 1;
-  var i = tr(), a = or(), u = cr(), h = ar(), f = xr(), x = hr(), v = dr();
-  return v.alea = i, v.xor128 = a, v.xorwow = u, v.xorshift7 = h, v.xor4096 = f, v.tychei = x, V = v, V;
+  var i = tr(), a = or(), u = cr(), f = ar(), x = xr(), l = hr(), v = dr();
+  return v.alea = i, v.xor128 = a, v.xorwow = u, v.xorshift7 = f, v.xor4096 = x, v.tychei = l, V = v, V;
 }
 var mr = gr();
 const br = /* @__PURE__ */ rr(mr);
-function B(i, a, u) {
+function C(i, a, u) {
   return Math.trunc(u() * (a - i) + i);
 }
 var b = /* @__PURE__ */ ((i) => (i[i.X = 0] = "X", i[i.Y = 1] = "Y", i[i.BOTH = 2] = "BOTH", i))(b || {});
-function k(i, a, u, h) {
-  switch (h) {
+function k(i, a, u, f) {
+  switch (f) {
     case b.X:
       return { x: i.x + Math.sin(a) * u, y: i.y };
     case b.Y:
@@ -386,8 +386,8 @@ function k(i, a, u, h) {
       return { x: i.x + Math.sin(a) * u, y: i.y + Math.sin(a) * u };
   }
 }
-function F(i, a, u, h) {
-  switch (h) {
+function F(i, a, u, f) {
+  switch (f) {
     case b.X:
       return { x: i.x + Math.cos(a) * u, y: i.y };
     case b.Y:
@@ -397,74 +397,65 @@ function F(i, a, u, h) {
   }
 }
 function Z(i, a, u) {
-  return { x: B(i.x, a.x, u), y: B(i.y, a.y, u) };
+  return { x: C(i.x, a.x, u), y: C(i.y, a.y, u) };
 }
 function Xr(i, a) {
   return { x: (i.x + a.x) / 2, y: (i.y + a.y) / 2 };
 }
-function qr(i, a, u, h) {
-  let f = [];
-  for (let x = 0; x < h; x = x + 1)
-    f = [...f, Z(i, a, u)];
-  return f;
-}
-function Pr(i, a, u) {
-  const h = i.x * (B(a * -1, a, u) / 100), f = i.y * (B(a * -1, a, u) / 100);
-  return { x: i.x + h, y: i.y + f };
-}
-function jr(i, a, u) {
-  const h = a.x - i.x, f = a.y - i.y;
+function Pr(i, a, u, f) {
   let x = [];
-  for (let v = 1; v <= u; v = v + 1)
-    x = [...x, { x: i.x + h / u * v, y: i.y + f / u * v }];
+  for (let l = 0; l < f; l = l + 1)
+    x = [...x, Z(i, a, u)];
   return x;
 }
-function Mr(i, a, u, h) {
-  const f = h(), x = h();
-  return f < 0.5 ? x < 0.3 ? k(i, a, u, b.X) : x >= 0.3 && x < 0.6 ? k(i, a, u, b.Y) : k(i, a, u, b.BOTH) : x < 0.3 ? F(i, a, u, b.X) : x >= 0.3 && x < 0.6 ? F(i, a, u, b.Y) : F(i, a, u, b.BOTH);
+function qr(i, a, u) {
+  const f = i.x * (C(a * -1, a, u) / 100), x = i.y * (C(a * -1, a, u) / 100);
+  return { x: i.x + f, y: i.y + x };
 }
-function Or(i, a, u, h, f, x) {
-  i.save(), i.beginPath(), i.strokeStyle = x, i.rect(a - h / 2, u - f / 2, h, f), i.stroke(), i.restore();
+function jr(i, a, u) {
+  const f = a.x - i.x, x = a.y - i.y;
+  let l = [];
+  for (let v = 1; v <= u; v = v + 1)
+    l = [...l, { x: i.x + f / u * v, y: i.y + x / u * v }];
+  return l;
 }
-const _r = {
-  min: {
-    x: 0,
-    y: 0
-  },
-  max: {
-    x: 640,
-    y: 480
-  }
-};
-function Br(i = 640, a = 480, u = _r, h = !0) {
-  const f = document.createElement("canvas"), x = f.getContext("2d");
-  f.width = i, f.height = a;
+function Mr(i, a, u, f) {
+  const x = f(), l = f();
+  return x < 0.5 ? l < 0.3 ? k(i, a, u, b.X) : l >= 0.3 && l < 0.6 ? k(i, a, u, b.Y) : k(i, a, u, b.BOTH) : l < 0.3 ? F(i, a, u, b.X) : l >= 0.3 && l < 0.6 ? F(i, a, u, b.Y) : F(i, a, u, b.BOTH);
+}
+function Or(i, a, u, f, x, l) {
+  i.save(), i.beginPath(), i.strokeStyle = l, i.rect(a - f / 2, u - x / 2, f, x), i.stroke(), i.restore();
+}
+function Br(i = 640, a = 480, u = !0, f) {
+  const x = document.createElement("canvas"), l = x.getContext("2d");
+  x.width = i, x.height = a;
   const v = br();
-  let c = { previousTime: Date.now(), delta: 0 };
+  let s = { previousTime: Date.now(), delta: 0 };
   const r = () => {
-    const e = Date.now(), o = (e - c.previousTime) / 1e3;
-    c.previousTime = e, c.delta = c.delta + o;
+    const n = Date.now(), o = (n - s.previousTime) / 1e3;
+    s.previousTime = n, s.delta = s.delta + o;
   };
-  if (x) {
-    const e = $r(x, v, u, { min: 10, max: 20 });
-    if (h) {
+  if (l) {
+    const n = $r(x, l, v, f);
+    if (u) {
       const o = () => {
-        r(), e(c.delta), requestAnimationFrame(o);
+        r(), n(s.delta), requestAnimationFrame(o);
       };
       o();
-    }
+    } else
+      n(0);
   }
-  return { canvas: f, context: x };
+  return { canvas: x, context: l };
 }
-function $r(i, a, u, h) {
-  const f = Z(u.min, u.max, a);
-  let v = qr(u.min, u.max, a, B(h.min, h.max, a)).map((c) => jr(f, c, B(10, 30, a)).map((r, e, o) => Pr(Xr(e == 0 ? f : o[e - 1], r), 10, a)));
-  return (c) => {
-    i.clearRect(0, 0, u.max.x, u.max.y), v = v.map((r) => {
-      const e = 1 / r.length, o = a();
-      return r.map((n, t) => {
-        const s = 1 - e * t;
-        return Or(i, n.x, n.y, 40, 40, `rgba(0,0,0,${s})`), Mr(n, c, o, a);
+function $r(i, a, u, f) {
+  const x = f && f.screenArea ? f.screenArea : { min: { x: 0, y: 0 }, max: { x: i.width, y: i.height } }, l = f && f.intervalLimits ? f.intervalLimits : { min: 10, max: 20 }, v = f && f.initialPoint ? f.initialPoint : Z(x.min, x.max, u);
+  let r = (f && f.endPoints ? f.endPoints : Pr(x.min, x.max, u, C(1, 20, u))).map((n) => jr(v, n, C(l.min, l.max, u)).map((o, e, t) => qr(Xr(e == 0 ? v : t[e - 1], o), 10, u)));
+  return (n) => {
+    a.clearRect(0, 0, i.width, i.height), r = r.map((o) => {
+      const e = 1 / o.length, t = u();
+      return o.map((c, h) => {
+        const g = 1 - e * h;
+        return Or(a, c.x, c.y, 40, 40, `rgba(0,0,0,${g})`), Mr(c, n, t, u);
       });
     });
   };
