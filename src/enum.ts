@@ -3,3 +3,8 @@ export enum MovementAxis {
     Y,
     BOTH
 }
+
+export enum ColorDirection {
+    TOSTART,
+    TOEND,
+}

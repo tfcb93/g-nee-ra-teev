@@ -1,6 +1,6 @@
 import type { PointType } from "../types";
 
-export function drawPoint(ctx: CanvasRenderingContext2D, x: number, y:number, w: number, h: number, color: string) {
+export function drawRect(ctx: CanvasRenderingContext2D, x: number, y:number, w: number, h: number, color: string) {
     ctx.save();
     ctx.beginPath();
     ctx.strokeStyle = color;
