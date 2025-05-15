@@ -15,6 +15,7 @@ export default class nee {
     seed: seedrandom.PRNG = seedrandom();
 
     delta: NeeDeltaTimeType = {previousTime: Date.now(), delta: 0};
+    animation: FrameRequestCallback = () => {};
 
 
     constructor(width?: number, height?: number) {
@@ -67,6 +68,12 @@ export default class nee {
     animate() {
         if (!this.context) return;
 
+        this.animation = () => {
+            this.loop();
+            // animate things here
+            requestAnimationFrame(this.animation);
+        }
+        this.animation(0); // For now, I will set it this way. Will check later the problems with that.
     }
 
 
