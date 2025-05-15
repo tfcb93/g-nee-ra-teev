@@ -26,7 +26,7 @@ export interface LimitsType {
     max: number
 }
 
-export interface DeltaTimeType {
+export interface NeeDeltaTimeType {
     previousTime: number,
     delta: number,
 }

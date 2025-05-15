@@ -1,52 +1,95 @@
 import seedrandom from "seedrandom";
-import type { DeltaTimeType, LimitsType, OptionsType, PointType, ScreenOptions } from "../src/types";
+import type { NeeDeltaTimeType, LimitsType, OptionsType, PointType, ScreenOptions } from "../src/types";
 import { choosePointMovement, createPoint, createPointHalfWay, createVariousPoints, distortPointByPercentage, splitBetween } from "../src/modules/points";
 import { randomBetweenNumbers } from "../src/modules/random";
 import { drawPoint } from "../src/modules/drawing";
 
-export default function nee(
-    width: number = 640,
-    height: number = 480,
-    animated: boolean = true,
-    options?: OptionsType,
-): {canvas: HTMLCanvasElement, context: CanvasRenderingContext2D | null} {
+export default class nee {
 
-    // canvas initial operations
-    const nee_canvas: HTMLCanvasElement = document.createElement('canvas');
-    const nee_context: CanvasRenderingContext2D | null = nee_canvas.getContext("2d");
-    
-    nee_canvas.width = width;
-    nee_canvas.height = height;
-    
-    // create pseudorandom seed
-    const nee_random: seedrandom.PRNG = seedrandom();
-    
-    // create delta time
-    let nee_delta: DeltaTimeType = {previousTime: Date.now(), delta: 0};
-    const nee_loop = () => {
-        const currentTime = Date.now();
-        const elapsed = (currentTime - nee_delta.previousTime) / 1000;
-        nee_delta.previousTime = currentTime;
-        nee_delta.delta = nee_delta.delta + elapsed;
-    }
-    
-    if (nee_context) {
-        const nee_choose = nee_squares(nee_canvas, nee_context, nee_random, options);
-        if (animated) {
-            const nee_animation = () => {
-                nee_loop();
-                nee_choose(nee_delta.delta);
-                requestAnimationFrame(nee_animation);
-            }
-            nee_animation();
-        } else {
-            nee_choose(0);
+    width: number = 640;
+    height: number = 480;
+
+    canvas: HTMLCanvasElement | null = null;
+    context: CanvasRenderingContext2D | null = null;
+
+    seed: seedrandom.PRNG = seedrandom();
+
+    delta: NeeDeltaTimeType = {previousTime: Date.now(), delta: 0};
+
+
+    constructor(width?: number, height?: number) {
+        if (!this.canvas) {
+            this.canvas = document.createElement("canvas");
+            if (this.canvas) this.context = this.canvas.getContext("2d");
         }
+
+        if (width) this.setWidth(width);
+        else this.canvas.width = this.width;
+        
+        if (height) this.setWidth(height);
+        else this.canvas.height = this.height;
+    }
+
+// Canvas related methods    
+    setWidth(width: number) {
+        if (width) this.width = width;
+        if (this.canvas) this.canvas.width = this.width;
+    }
+
+    setHeight(height: number) {
+        if (height) this.height = height;
+        if (this.canvas) this.canvas.height = this.height;
+    }
+
+    setSize(width: number, height: number) {
+        this.setWidth(width);
+        this.setHeight(height);
+    }
+    
+
+// Loop related methods
+    loop() {
+        const currentTime = Date.now();
+        const elapsed = (currentTime - this.delta.previousTime) / 1000;
+        this.delta.previousTime = currentTime;
+        this.delta.delta = this.delta.delta + elapsed;
+    }
+// Presentation related methods
+    show(element?: HTMLElement | null) {
+        if (!this.canvas) return; 
+        if (!element) {
+            document.body.appendChild(this.canvas);
+            return;
+        }
+        element.appendChild(this.canvas);
+    }
+
+    animate() {
+        if (!this.context) return;
+
     }
 
 
-    return {canvas: nee_canvas, context: nee_context};
 }
+
+// export default function nee(
+//     animated: boolean = true,
+//     options?: OptionsType,
+// ): {canvas: HTMLCanvasElement, context: CanvasRenderingContext2D | null} {   
+//     if (nee_context) {
+//         const nee_choose = nee_squares(nee_canvas, nee_context, nee_random, options);
+//         if (animated) {
+//             const nee_animation = () => {
+//                 nee_loop();
+//                 nee_choose(nee_delta.delta);
+//                 requestAnimationFrame(nee_animation);
+//             }
+//             nee_animation();
+//         } else {
+//             nee_choose(0);
+//         }
+//     }
+// }
 
 function nee_squares(
     nee_canvas: HTMLCanvasElement,
