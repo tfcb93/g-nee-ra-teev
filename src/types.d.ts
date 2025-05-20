@@ -1,12 +1,12 @@
-export interface PointType {
+export interface NeePointType {
     x: number,
     y: number
 }
 
 interface OptionsType {
     screenArea?: ScreenOptions,
-    initialPoint?: PointType,
-    endPoints?: Array<PointType>
+    initialPoint?: NeePointType,
+    endPoints?: Array<NeePointType>
     intervalLimits?: LimitsType,
 }
 

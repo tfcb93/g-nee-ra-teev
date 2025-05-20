@@ -1,4 +1,4 @@
-import type { PointType } from "../types";
+import type { NeePointType } from "../types";
 
 export function drawPoint(ctx: CanvasRenderingContext2D, x: number, y:number, w: number, h: number, color: string) {
     ctx.save();
@@ -9,7 +9,7 @@ export function drawPoint(ctx: CanvasRenderingContext2D, x: number, y:number, w:
     ctx.restore();
   }
   
-export function drawLine (ctx: CanvasRenderingContext2D, pointStart: PointType, pointEnd: PointType, color: string) {
+export function drawLine (ctx: CanvasRenderingContext2D, pointStart: NeePointType, pointEnd: NeePointType, color: string) {
     ctx.save();
     ctx.beginPath();
     ctx.strokeStyle = color;

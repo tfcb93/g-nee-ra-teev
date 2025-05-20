@@ -1,5 +1,5 @@
 import './style.css'
-import nee from '../lib/main';
+import Nee from '../lib/main';
 
 function app() {
 
@@ -35,9 +35,11 @@ function app() {
   // const special_div = document.getElementById("insert-here");
   // special_div?.appendChild(new_nee_canvas.canvas);
 
-  const new_nee = new nee();
+  const new_nee = new Nee();
 
   new_nee.show();
+
+  new_nee.animate();
 
 }
 
