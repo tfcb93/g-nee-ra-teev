@@ -1,8 +1,7 @@
 import seedrandom from "seedrandom";
-import type { NeeDeltaTimeType, LimitsType, OptionsType, NeePointType, ScreenOptions } from "../src/types";
-import NeePoints, { splitBetween } from "../src/modules/Points";
-import { randomBetweenNumbers } from "../src/modules/random";
-import { drawPoint } from "../src/modules/drawing";
+import type { NeeDeltaTimeType } from "../src/types";
+import NeePoints from "../src/modules/forms/Points";
+import NeeForms from "../src/modules/forms/Forms";
 
 export default class Nee {
 
@@ -17,7 +16,7 @@ export default class Nee {
     delta: NeeDeltaTimeType = {previousTime: Date.now(), delta: 0};
     animation: FrameRequestCallback = () => {};
 
-    form = new NeePoints({x: 100, y: 100}, {x: 250, y: 250}, 10, this.seed);
+    form: NeeForms = new NeePoints({x: 100, y: 100}, {x: 250, y: 250}, 10, this.seed) as NeePoints;
 
 
     constructor(width?: number, height?: number) {
@@ -67,6 +66,11 @@ export default class Nee {
         element.appendChild(this.canvas);
     }
 
+    draw() {
+        if (!this.context) return;
+        this.form.draw(this.context!);
+    }
+
     animate() {
         if (!this.context) return;
 
@@ -85,25 +89,6 @@ export default class Nee {
 
 
 }
-
-// export default function nee(
-//     animated: boolean = true,
-//     options?: OptionsType,
-// ): {canvas: HTMLCanvasElement, context: CanvasRenderingContext2D | null} {   
-//     if (nee_context) {
-//         const nee_choose = nee_squares(nee_canvas, nee_context, nee_random, options);
-//         if (animated) {
-//             const nee_animation = () => {
-//                 nee_loop();
-//                 nee_choose(nee_delta.delta);
-//                 requestAnimationFrame(nee_animation);
-//             }
-//             nee_animation();
-//         } else {
-//             nee_choose(0);
-//         }
-//     }
-// }
 
 // function nee_squares(
 //     nee_canvas: HTMLCanvasElement,

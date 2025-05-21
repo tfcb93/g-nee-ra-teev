@@ -1,6 +1,6 @@
 import seedrandom from "seedrandom";
 import { NeePointType } from "../types";
-import NeePoint from "./Point";
+import NeePoint from "./form/Point";
 
 
 export default class NeeHalfwayPoint extends NeePoint {

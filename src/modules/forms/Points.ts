@@ -1,13 +1,13 @@
 import seedrandom from 'seedrandom';
-import { randomBetweenNumbers } from "./random";
-import type { NeeDeltaTimeType, NeePointType } from '../types';
-import { MovementAxis } from '../enum';
-import NeePoint from './Point';
+import type { NeeDeltaTimeType, NeePointType } from '../../types';
+import NeePoint from '../form/Point';
+import NeeForms from './Forms';
 
-export default class NeePoints {
+export default class NeePoints extends NeeForms{
 	points: Array<NeePoint> = [];
 
 	constructor(min: NeePointType, max: NeePointType, quantity: number, generator: seedrandom.PRNG) {
+    super();
     for (let i: number = 0; i < quantity; i = i + 1) this.points = [...this.points, new NeePoint(min, max, generator)];
 	}
 
@@ -27,7 +27,7 @@ export default class NeePoints {
 
 }
 
-
+// basically "generate more points between two points"
 export function splitBetween(pointStart: NeePointType, pointEnd: NeePointType, quantity: number): Array<NeePointType> {
     const xDist: number = pointEnd.x - pointStart.x;
     const yDist: number = pointEnd.y - pointStart.y;
@@ -38,6 +38,8 @@ export function splitBetween(pointStart: NeePointType, pointEnd: NeePointType, q
     }
     return slicePoints;
   }
+
+// I do have to adapt this to move each point (or circle, or square, or whatever) individually
 
 // export function choosePointMovement(point: NeePointType, delta: number, variation: number, generator: seedrandom.PRNG): NeePointType {
 //     const randomValue = generator();

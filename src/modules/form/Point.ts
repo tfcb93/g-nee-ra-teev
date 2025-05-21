@@ -1,8 +1,8 @@
 import seedrandom from "seedrandom";
-import { NeeDeltaTimeType, NeePointType } from "../types";
-import { randomBetweenNumbers } from "./random";
-import NeeMovement from "./movement";
-import { MovementAxis } from "../enum";
+import { NeeDeltaTimeType, NeePointType } from "../../types";
+import { randomBetweenNumbers } from "../utils/random";
+import NeeMovement from "../Movement";
+import { MovementAxis } from "../../enum";
 
 export default class NeePoint {
 
@@ -10,7 +10,7 @@ export default class NeePoint {
     y: number = 0;
 
     movement = new NeeMovement(1);
-    movementAxis: MovementAxis = 1;
+    axis: MovementAxis = 1;
 
     constructor(min: NeePointType, max: NeePointType, generator: seedrandom.PRNG) {
         this.x = randomBetweenNumbers(min.x, max.x, generator);
@@ -23,11 +23,18 @@ export default class NeePoint {
         this.y += this.y * (randomBetweenNumbers(percentage * -1, percentage, generator) / 100);
     }
 
+    setAxis(newAxis: MovementAxis) {
+        this.axis = newAxis;
+    }
+
+    setMovement(newMovement: NeeMovement) {
+        this.movement = newMovement;
+    }
+
     move(delta: NeeDeltaTimeType): void {
-        switch(this.movementAxis) {
+        switch(this.axis) {
             case MovementAxis.X:
                 this.x = this.movement.move(this.x, delta);
-                // console.log(this.x);
                 return;
             case MovementAxis.Y:
                 this.y = this.movement.move(this.y, delta);
