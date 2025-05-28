@@ -1,7 +1,8 @@
 import seedrandom from "seedrandom";
-import type { NeeDeltaTimeType } from "../src/types";
+import type { NeeDeltaTimeType, NeePointType } from "../src/types";
 import NeePoints from "../src/modules/forms/Points";
 import NeeForms from "../src/modules/forms/Forms";
+import NeeCircles from "../src/modules/forms/Circles";
 
 export default class Nee {
 
@@ -16,7 +17,7 @@ export default class Nee {
     delta: NeeDeltaTimeType = {previousTime: Date.now(), delta: 0};
     animation: FrameRequestCallback = () => {};
 
-    form: NeeForms = new NeePoints({x: 100, y: 100}, {x: 250, y: 250}, 10, this.seed) as NeePoints;
+    form: NeeForms = new NeePoints({x: 100, y: 100}, {x: 250, y: 250}, 10, this.seed);
 
 
     constructor(width?: number, height?: number) {
@@ -48,6 +49,28 @@ export default class Nee {
         this.setHeight(height);
     }
     
+// Form related methods
+
+    // are those necessary actually?
+    point() {
+        this.form = this.form as NeePoints;
+    }
+    circle() {
+        this.form = this.form as NeeCircles;
+    }
+
+// Generation related methods
+    startPoint(start: NeePointType) {
+
+    }
+
+    endPoints(ends: Array<NeePointType>) {
+
+    }
+
+    generate() {
+        // get start point and for each end point make a set of points in forms
+    }
 
 // Loop related methods
     loop() {

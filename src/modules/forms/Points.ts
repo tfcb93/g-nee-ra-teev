@@ -1,29 +1,14 @@
 import seedrandom from 'seedrandom';
-import type { NeeDeltaTimeType, NeePointType } from '../../types';
+import type { NeePointType } from '../../types';
 import NeePoint from '../form/Point';
 import NeeForms from './Forms';
 
 export default class NeePoints extends NeeForms{
-	points: Array<NeePoint> = [];
 
 	constructor(min: NeePointType, max: NeePointType, quantity: number, generator: seedrandom.PRNG) {
     super();
-    for (let i: number = 0; i < quantity; i = i + 1) this.points = [...this.points, new NeePoint(min, max, generator)];
+    for (let i: number = 0; i < quantity; i = i + 1) this.forms = [...this.forms, new NeePoint(min, max, generator)];
 	}
-
-  move(delta: NeeDeltaTimeType): void {
-    this.points.forEach((point, index) => {
-      point.move(delta);
-    });
-  }
-
-  draw(context: CanvasRenderingContext2D): void {
-    context.save();
-    this.points.forEach((point, index) => {
-      point.draw(context);
-    });
-    context.restore();
-  }
 
 }
 
