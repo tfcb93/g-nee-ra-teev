@@ -12,7 +12,8 @@ export default class NeeCircles extends NeeForms{
         super();
         // for (let i: number = 0; i < quantity; i = i + 1) this.forms = [...this.forms, new NeeCircle(min, max, generator)];
         end.forEach((endPoint) => {
-            let newCircles: Array<NeeCircle> = splitBetween(start, endPoint, quantity, generator).map((point: NeePoint) => (new NeeCircle(point, radius > -1 ? radius : randomBetweenNumbers(1, 10, generator), false)));
+            let newCircles: Array<NeeCircle> = splitBetween(start, endPoint, quantity)
+                .map((point: {min: NeePointType, max: NeePointType}) => (new NeeCircle(point.min, point.max, generator, radius > -1 ? radius : randomBetweenNumbers(1, 10, generator), false)));
           this.forms = [...this.forms, ...newCircles];
         });
     }

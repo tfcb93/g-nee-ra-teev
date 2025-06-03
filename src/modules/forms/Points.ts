@@ -1,7 +1,7 @@
 import seedrandom from 'seedrandom';
 import type { NeePointType } from '../../types';
 import NeeForms from './Forms';
-import { splitBetween } from '../utils/point';
+import { pointBetween } from '../utils/point';
 
 export default class NeePoints extends NeeForms{
 
@@ -10,7 +10,7 @@ export default class NeePoints extends NeeForms{
     // for (let i: number = 0; i < quantity; i = i + 1) this.forms = [...this.forms, new NeePoint(min, max, generator)];
 
     end.forEach((endPoint) => {
-      this.forms = [...this.forms, ...(splitBetween(start, endPoint, quantity, generator))];
+      this.forms = [...this.forms, ...(pointBetween(start, endPoint, quantity, generator))];
     });
 	}
 

@@ -1,14 +1,14 @@
-import { NeeDeltaTimeType } from "../../types";
+import seedrandom from "seedrandom";
+import { NeeDeltaTimeType, NeePointType } from "../../types";
 import NeePoint from "./Point";
 
-export class NeeCircle {
+export class NeeCircle extends NeePoint {
     
-    center: NeePoint;
     radius: number;
     fill: boolean;
 
-    constructor(center: NeePoint, radius: number = 10, fill: boolean = false) {
-        this.center = center;
+    constructor(min: NeePointType, max: NeePointType, generator: seedrandom.PRNG, radius: number = 10, fill: boolean = false) {
+        super(min, max, generator);
         this.radius = radius;
         this.fill = fill
     }
@@ -19,17 +19,13 @@ export class NeeCircle {
 
     // actually everything has a NeePoint type in it hmmmm
     setMovementVariation(newVariation: number): void {
-        this.center.movement.setVariation(newVariation);
-    }
-
-    move(delta: NeeDeltaTimeType) {
-        this.center.move(delta);
+        this.movement.setVariation(newVariation);
     }
 
     draw(context: CanvasRenderingContext2D) {
         context.fillStyle = "black";
         context.beginPath();
-        context.arc(this.center.x, this.center.y, this.radius, 0, 2 * Math.PI);
+        context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
         this.fill ? context.fill() : context.stroke();
     }
 }
