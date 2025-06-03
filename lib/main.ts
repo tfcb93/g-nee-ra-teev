@@ -17,7 +17,7 @@ export default class Nee {
     delta: NeeDeltaTimeType = {previousTime: Date.now(), delta: 0};
     animation: FrameRequestCallback = () => {};
 
-    form: NeeForms = new NeePoints({x: 100, y: 100}, {x: 250, y: 250}, 10, this.seed);
+    form: NeeForms = new NeeCircles({x: 100, y: 100}, [{x: 250, y: 250}, {x: 50, y: 300}], 25, this.seed);
 
 
     constructor(width?: number, height?: number) {
@@ -70,6 +70,12 @@ export default class Nee {
 
     generate() {
         // get start point and for each end point make a set of points in forms
+    }
+
+// Movement related methods
+
+    changeVariationInterval(min: number, max: number) {
+        this.form.setMovement(min, max, this.seed);
     }
 
 // Loop related methods

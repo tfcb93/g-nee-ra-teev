@@ -1,11 +1,13 @@
+import seedrandom from "seedrandom";
 import { NeeDeltaTimeType } from "../../types";
 import { NeeCircle } from "../form/Circle";
-import NeeLine from "../form/Line";
 import NeePoint from "../form/Point";
-import NeeSquare from "../form/Square";
+import { randomBetweenNumbers } from "../utils/random";
+// import NeeLine from "../form/Line";
+// import NeeSquare from "../form/Square";
 
-type NeeFormsArrayType = Array<NeePoint | NeeLine | NeeSquare | NeeCircle>;
-type NeeFormsType = NeePoint | NeeLine | NeeSquare | NeeCircle;
+type NeeFormsArrayType = Array<NeePoint | NeeCircle > //NeePoint>| NeeSquare | NeeLine>;
+type NeeFormsType = NeePoint | NeeCircle //| NeeSquare | NeeLine;
 
 export default class NeeForms {
 
@@ -13,6 +15,12 @@ export default class NeeForms {
 
     constructor() {
 
+    }
+
+    setMovement(min: number, max: number, generator: seedrandom.PRNG): void {
+        this.forms.forEach((form: NeeFormsType) => {
+            form.setMovementVariation(randomBetweenNumbers(min, max, generator));
+        });
     }
 
     draw(context: CanvasRenderingContext2D) {

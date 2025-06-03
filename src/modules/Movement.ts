@@ -9,6 +9,10 @@ export default class NeeMovement {
     this.variation = variation;
   }
 
+  setVariation(newVariation: number): void {
+    this.variation = newVariation;
+  }
+
   defineFunction(newFunction: Function): void {
     this.mathFunction = newFunction;
   }

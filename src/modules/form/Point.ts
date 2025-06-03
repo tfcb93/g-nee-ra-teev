@@ -31,6 +31,10 @@ export default class NeePoint {
         this.movement = newMovement;
     }
 
+    setMovementVariation(newVariation: number): void {
+        this.movement.setVariation(newVariation);
+    }
+
     move(delta: NeeDeltaTimeType): void {
         switch(this.axis) {
             case MovementAxis.X:

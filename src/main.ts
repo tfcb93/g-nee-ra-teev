@@ -33,6 +33,8 @@ function app() {
 
   const new_nee = new Nee();
 
+  new_nee.changeVariationInterval(1.2, 2);
+
   new_nee.show();
 
   new_nee.animate();

@@ -2,11 +2,18 @@ import seedrandom from "seedrandom";
 import type { NeePointType } from "../../types";
 import { NeeCircle } from "../form/Circle";
 import NeeForms from "./Forms";
+import NeePoint from "../form/Point";
+import { splitBetween } from "../utils/point";
+import { randomBetweenNumbers } from "../utils/random";
 
 export default class NeeCircles extends NeeForms{
 
-    constructor(min: NeePointType, max: NeePointType, quantity: number, generator: seedrandom.PRNG) {
+    constructor(start: NeePointType, end: Array<NeePointType>, quantity: number, generator: seedrandom.PRNG, radius: number = -1) {
         super();
-        for (let i: number = 0; i < quantity; i = i + 1) this.forms = [...this.forms, new NeeCircle(min, max, generator)];
+        // for (let i: number = 0; i < quantity; i = i + 1) this.forms = [...this.forms, new NeeCircle(min, max, generator)];
+        end.forEach((endPoint) => {
+            let newCircles: Array<NeeCircle> = splitBetween(start, endPoint, quantity, generator).map((point: NeePoint) => (new NeeCircle(point, radius > -1 ? radius : randomBetweenNumbers(1, 10, generator), false)));
+          this.forms = [...this.forms, ...newCircles];
+        });
     }
 }
