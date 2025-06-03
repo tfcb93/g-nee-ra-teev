@@ -14,10 +14,13 @@ export default class Nee {
 
     seed: seedrandom.PRNG = seedrandom("10");
 
+    start: NeePointType = {x: 0, y: 0};
+    ends: Array<NeePointType> = [];
+
     delta: NeeDeltaTimeType = {previousTime: Date.now(), delta: 0};
     animation: FrameRequestCallback = () => {};
 
-    form: NeeForms = new NeeCircles({x: 100, y: 100}, [{x: 250, y: 250}, {x: 50, y: 300}], 25, this.seed);
+    form: NeeForms | null = null;
 
 
     constructor(width?: number, height?: number) {
@@ -48,33 +51,26 @@ export default class Nee {
         this.setWidth(width);
         this.setHeight(height);
     }
-    
-// Form related methods
-
-    // are those necessary actually?
-    point() {
-        this.form = this.form as NeePoints;
-    }
-    circle() {
-        this.form = this.form as NeeCircles;
-    }
 
 // Generation related methods
+    // are those necessary actually?
+    points(quantity: number) {
+        this.form = new NeePoints(this.start, this.ends, quantity, this.seed);
+    }
+    circles(quantity: number, radius: number = 10) {
+        this.form = new NeeCircles(this.start, this.ends, quantity, this.seed, radius);
+    }
     startPoint(start: NeePointType) {
-
+        this.start = start;
     }
-
     endPoints(ends: Array<NeePointType>) {
-
-    }
-
-    generate() {
-        // get start point and for each end point make a set of points in forms
+        this.ends = ends;
     }
 
 // Movement related methods
 
     changeVariationInterval(min: number, max: number) {
+        if (!this.form) return;
         this.form.setMovement(min, max, this.seed);
     }
 
@@ -97,6 +93,7 @@ export default class Nee {
 
     draw() {
         if (!this.context) return;
+        if (!this.form) return;
         this.form.draw(this.context!);
     }
 
@@ -106,7 +103,8 @@ export default class Nee {
         this.animation = () => {
             this.context?.clearRect(0, 0, this.canvas!.width, this.canvas!.height)
             this.loop();
-            // animate things here
+
+            if (!this.form) return;
 
             this.form.move(this.delta);
             this.form.draw(this.context!);
@@ -118,36 +116,3 @@ export default class Nee {
 
 
 }
-
-// function nee_squares(
-//     nee_canvas: HTMLCanvasElement,
-//     nee_context: CanvasRenderingContext2D,
-//     nee_generator: seedrandom.PRNG,
-//     options?: OptionsType,
-// ): (delta: number) => void {
-//     const screen: ScreenOptions = options && options.screenArea ? options.screenArea : {min: {x:0, y:0}, max: {x: nee_canvas.width, y: nee_canvas.height}};
-//     const limits: LimitsType = options && options.intervalLimits ? options.intervalLimits : {min: 10, max: 20};
-//     // initialize
-//     const initialPoint: NeePointType = options && options.initialPoint ? options.initialPoint : createPoint(screen.min, screen.max, nee_generator);
-//     const finalPoints: Array<NeePointType> = options &&  options.endPoints ? options.endPoints : createVariousPoints(screen.min, screen.max, nee_generator, randomBetweenNumbers(1, 20, nee_generator));
-//     let inBetweenPoints: Array<Array<NeePointType>> = finalPoints.map((point: NeePointType) => {
-//         return splitBetween(initialPoint, point, randomBetweenNumbers(limits.min, limits.max, nee_generator)).map((inBetweenPoint: NeePointType, index: number, arr: Array<NeePointType>) => {
-//           const newPoint = distortPointByPercentage(createPointHalfWay(index == 0 ? initialPoint : arr[index - 1], inBetweenPoint), 10, nee_generator);
-//           return newPoint;
-//         });
-//       });
-
-
-//       return (delta: number) => {
-//         nee_context.clearRect(0, 0, nee_canvas.width, nee_canvas.height);
-//         inBetweenPoints = inBetweenPoints.map((points: Array<NeePointType>) => {
-//             const colorInterval: number = 1.0/points.length;
-//             const pointsMultiplyer = nee_generator();
-//             return points.map((point: NeePointType, index: number) => {
-//                 const gradient: number = true ? 1.0 - (colorInterval * index) : (colorInterval * index); // in the future, change it to be a parameter
-//                 drawPoint(nee_context, point.x, point.y, 40, 40, `rgba(0,0,0,${gradient})`);
-//                 return choosePointMovement(point, delta, pointsMultiplyer, nee_generator);
-//             });
-//       });
-//     }
-// }

@@ -33,9 +33,16 @@ function app() {
 
   const new_nee = new Nee();
 
-  new_nee.changeVariationInterval(1.2, 2);
-
+  
   new_nee.show();
+  
+  new_nee.startPoint({x: 100, y: 100});
+  
+  new_nee.endPoints([{x: 250, y: 250}, {x: 50, y: 300}])
+  
+  new_nee.circles(5, 25);
+  
+  new_nee.changeVariationInterval(-2, 2);
 
   new_nee.animate();
 

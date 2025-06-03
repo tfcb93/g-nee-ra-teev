@@ -57,7 +57,5 @@ export default class NeePoint {
         context.beginPath();
         context.arc(this.x, this.y, 2, 0, 2 * Math.PI);
         context.fill();
-
-        // console.log(this.x, this.y);
     }
 }

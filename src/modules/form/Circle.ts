@@ -17,7 +17,6 @@ export class NeeCircle extends NeePoint {
         this.radius = newRadius;
     }
 
-    // actually everything has a NeePoint type in it hmmmm
     setMovementVariation(newVariation: number): void {
         this.movement.setVariation(newVariation);
     }
