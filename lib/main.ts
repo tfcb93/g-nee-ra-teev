@@ -3,6 +3,7 @@ import type { NeeDeltaTimeType, NeePointType } from "../src/types";
 import NeePoints from "../src/modules/forms/Points";
 import NeeForms from "../src/modules/forms/Forms";
 import NeeCircles from "../src/modules/forms/Circles";
+import NeeSquares from "../src/modules/forms/Squares";
 
 export default class Nee {
 
@@ -59,6 +60,9 @@ export default class Nee {
     }
     circles(quantity: number, radius: number = 10) {
         this.form = new NeeCircles(this.start, this.ends, quantity, this.seed, radius);
+    }
+    squares(quantity: number, width: number = 10, height: number = 10) {
+        this.form = new NeeSquares(this.start, this.ends, quantity, this.seed, width, height);
     }
     startPoint(start: NeePointType) {
         this.start = start;

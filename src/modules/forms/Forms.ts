@@ -3,11 +3,12 @@ import { NeeDeltaTimeType } from "../../types";
 import { NeeCircle } from "../form/Circle";
 import NeePoint from "../form/Point";
 import { randomBetweenNumbers } from "../utils/random";
+import { NeeSquare } from "../form/Square";
 // import NeeLine from "../form/Line";
 // import NeeSquare from "../form/Square";
 
-type NeeFormsArrayType = Array<NeePoint | NeeCircle > //NeePoint>| NeeSquare | NeeLine>;
-type NeeFormsType = NeePoint | NeeCircle //| NeeSquare | NeeLine;
+type NeeFormsArrayType = Array<NeePoint | NeeCircle | NeeSquare > //NeePoint>| NeeSquare | NeeLine>;
+type NeeFormsType = NeePoint | NeeCircle | NeeSquare //| NeeSquare | NeeLine;
 
 export default class NeeForms {
 

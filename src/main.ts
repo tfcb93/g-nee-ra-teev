@@ -40,7 +40,7 @@ function app() {
   
   new_nee.endPoints([{x: 250, y: 250}, {x: 50, y: 300}])
   
-  new_nee.circles(5, 25);
+  new_nee.squares(5, 50, 50);
   
   new_nee.changeVariationInterval(-2, 2);
 

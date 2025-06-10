@@ -2,7 +2,6 @@ import seedrandom from "seedrandom";
 import type { NeePointType } from "../../types";
 import { NeeCircle } from "../form/Circle";
 import NeeForms from "./Forms";
-import NeePoint from "../form/Point";
 import { splitBetween } from "../utils/point";
 import { randomBetweenNumbers } from "../utils/random";
 
