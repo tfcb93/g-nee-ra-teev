@@ -16,6 +16,5 @@ export default class NeeSquares extends NeeForms{
           this.forms = [...this.forms, ...newCircles];
         });
 
-        console.log(this.forms);
     }
 }
