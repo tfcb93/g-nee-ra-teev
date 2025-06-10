@@ -19,7 +19,7 @@ export default class NeeForms {
 
     setMovement(min: number, max: number, generator: seedrandom.PRNG): void {
         this.forms.forEach((form: NeeFormsType) => {
-            form.setMovementVariation(randomBetweenNumbers(min, max, generator));
+            form.setMovementVariation(randomBetweenNumbers(min, max, generator, {multiplier: randomBetweenNumbers(0.01, 0.4, generator, {trunc: false})}));
         });
     }
 
